@@ -31,7 +31,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -64,6 +64,24 @@ return {
       },
     },
   },
+
+   -- Add prettier format on save
+  ["null-ls"] = function()
+    local status_ok, null_ls = pcall(require, "null-ls")
+    if status_ok then
+      null_ls.setup {
+        debug = false,
+        sources = {
+          null_ls.builtins.formatting.prettier,
+        },
+        on_attach = function(client)
+          if client.resolved_capabilities.document_formatting then
+            vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+          end
+        end,
+      }
+    end
+  end,
 
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
