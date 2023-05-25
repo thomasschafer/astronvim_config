@@ -1,4 +1,14 @@
 return {
+  -- You can also add new plugins here as well:
+  -- Add plugins, the lazy syntax
+  -- "andweeb/presence.nvim",
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("lsp_signature").setup()
+  --   end,
+  -- },
   {
     "karb94/neoscroll.nvim",
     lazy = false,
@@ -27,14 +37,15 @@ return {
       require('neoscroll.config').set_mappings(t)
     end,
   },
-  -- You can also add new plugins here as well:
-  -- Add plugins, the lazy syntax
-  -- "andweeb/presence.nvim",
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lsp_signature").setup()
-  --   end,
-  -- },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    name = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha"
+      })
+    end
+  }
 }
+
