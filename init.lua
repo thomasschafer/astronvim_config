@@ -65,7 +65,7 @@ return {
     },
   },
 
-   -- Add prettier format on save
+  -- Add prettier format on save
   ["null-ls"] = function()
     local status_ok, null_ls = pcall(require, "null-ls")
     if status_ok then
@@ -99,5 +99,6 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    vim.cmd "highlight LineNr guifg=#ededed"
   end,
 }
