@@ -28,14 +28,11 @@ local mappings = {
     ["<leader>C"] = { '"_C' },
   },
   v = {
-    ["<leader>d"] = { '"_d' },
+    ["<leader>d"] = { '"_d', nowait = true },
     ["<leader>p"] = { '"_dp' },
     ["<leader>c"] = { '"_c' },
   },
-  i = {
-    -- ["<Tab>"] = { "copilot#Accept()" },
-    ["<Tab>"] = { "5k" },
-  },
+  i = {},
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
@@ -48,9 +45,9 @@ local mappings = {
 for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
   for _, mode in ipairs { "x", "o" } do
     mappings[mode]["i" .. char] =
-    { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
+      { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
     mappings[mode]["a" .. char] =
-    { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
+      { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
   end
 end
 
