@@ -22,15 +22,15 @@ local mappings = {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-    ["<leader>d"] = { '"_d' },
-    ["<leader>D"] = { '"_D' },
-    ["<leader>c"] = { '"_c' },
-    ["<leader>C"] = { '"_C' },
+    ["d"] = { '"_d' },
+    ["D"] = { '"_D' },
+    ["c"] = { '"_c' },
+    ["C"] = { '"_C' },
   },
   v = {
-    ["<leader>d"] = { '"_d', nowait = true },
-    ["<leader>p"] = { '"_dp' },
-    ["<leader>c"] = { '"_c' },
+    ["d"] = { '"_d' },
+    ["p"] = { '"_dP' },
+    ["c"] = { '"_c' },
   },
   i = {},
   t = {
