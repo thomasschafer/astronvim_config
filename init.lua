@@ -99,6 +99,7 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
-    vim.cmd "highlight LineNr guifg=#ededed"
+    vim.cmd "highlight LineNr guifg=#cdd6f4"
+    vim.cmd "highlight CursorLineNr guifg=#ffffff"
   end,
 }
